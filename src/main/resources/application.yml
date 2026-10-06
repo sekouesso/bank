@@ -1,0 +1,26 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:bankdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  h2:
+    console:
+      enabled: true
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+# Configuration JWT (voir com.gitech.bank.security.JwtService).
+# ⚠️ En production, ce secret DOIT venir d'une variable d'environnement
+# (ou d'un coffre-fort de secrets), jamais être commité en clair dans le
+# code source. Il est laissé ici en clair uniquement pour la simplicité du
+# TP/cours.
+jwt:
+  secret: gRighYPxb+F6BMzMgRGdRJd1j/J8PlrA4CmwoxjgxTM=
+  expiration-ms: 3600000 # 1 heure
